@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign out</title>
+</head>
+<body>
+<form action="/v01/users" method="post">
+    {% raw xsrf_form_html() %}
+    <label >用户名</label>
+    <input type="text" id="" name="user_name"><br>
+    <label >密码</label>
+    <input type="password" name="password"><br>
+    <label>确认密码</label>
+    <input type="password" name="check_passwd"><br>
+    <label>手机</label>
+    <input type="text" name="phone"> <br>
+    <label>邮箱</label>
+    <input type="text" name="email"><br>
+    <img src="/v01/check_code"><br>
+    <label>验证码</label>
+    <input type="text" name="check_code"><br>
+    <input type="submit" value="注册">
+</form>
+
+</body>
+</html>

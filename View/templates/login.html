@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<form action="/v01/login" method="post">
+    {% raw xsrf_form_html() %}
+    <label class="label1" for="username">用户名</label><br>
+    <input id="username" type="text" name="username"><br>
+    <label class="label2" for="userpwd">密码</label><br>
+    <input type="password" id="userpwd" name="userpwd"><br>
+    <img id="check_code" src="/v01/check_code"><br>
+    <input type="text" name="check_code"><br>
+    <input type="submit" value="sign in"><br>
+</form>
+</body>
+</html>
