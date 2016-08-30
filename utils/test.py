@@ -1,6 +1,9 @@
 # coding:utf-8
+import hashlib
 
-dic1={'1':1,'2':2}
-dic2={'a':1,'b':2}
-l=dic1+dic2
-print l
+
+def create_passwd(passwd):
+    if passwd is None:
+        raise Exception('密码为空')
+    return hashlib.sha256(passwd + "good,good,stdy").hexdigest()
+print len(create_passwd('165464656@qq.com'))

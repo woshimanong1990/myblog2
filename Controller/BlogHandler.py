@@ -11,7 +11,7 @@ class BlogsHandler(BaseHandler):
     @check_permission
     @authenticated
     def get(self, *args, **kwargs):
-        pass
+        self.render('blog.html')
 
     @check_permission
     @authenticated
@@ -22,7 +22,7 @@ class BlogsHandler(BaseHandler):
 class BlogHandler(BaseHandler):
     @check_permission
     @authenticated
-    def get(self,blog_id):
+    def get(self, blog_id):
         pass
 
     @check_permission

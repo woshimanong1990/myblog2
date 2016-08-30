@@ -27,6 +27,7 @@ class RandomChar():
             RandomChar.get_chengyu()
 
         chengyu = RandomChar.chengyu[num]
+        chengyu = chengyu.strip()
         # print chengyu
         return chengyu.decode('utf-8')
 

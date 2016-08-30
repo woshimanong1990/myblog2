@@ -12,17 +12,48 @@ sys.setdefaultencoding('utf-8')
 
 
 def check_fields(**kwargs):
-    check_user_name(kwargs.get('user_name', None))
+    user_name = kwargs.get('user_name', None)
+    check_user_name(user_name)
+
     check_passwd(kwargs.get('password', None))
-    check_email(kwargs.get('email', None))
-    check_phone(kwargs.get('phone', None))
-    check_ip(kwargs.get('login_ip'), None)
+
+    email = kwargs.get('email', None)
+    check_email(email)
+
+    phone = kwargs.get('phone', None)
+    check_phone(phone)
+
+    check_ip(kwargs.get('login_ip', None))
 
 
 def create_user(**kwargs):
     session = Session()
     kwargs.pop('id', None)
     check_fields(**kwargs)
+
+    user_name = kwargs.get('user_name', None)
+    email = kwargs.get('email', None)
+    phone = kwargs.get('phone', None)
+
+    try:
+        user_name_check = get_user(user_name=user_name)
+    except Exception as e:
+        print e
+    if user_name_check is not None:
+        raise Exception('用户名已存在')
+    try:
+        user_email_check = get_user(user_email=email)
+    except Exception as e:
+        print e
+    if user_email_check is not None:
+        raise Exception('用户邮箱已存在')
+    try:
+        user_phone_check = get_user(user_phone=phone)
+    except Exception as e:
+        print e
+    if user_phone_check is not None:
+        raise Exception('用户手机已存在')
+
     user = UserLogin(**kwargs)
     session.add(user)
     session.commit()
@@ -35,7 +66,7 @@ def get_users():
     return users
 
 
-def get_user(user_name=None, user_email=None, user_phone=None,user_id=None):
+def get_user(user_name=None, user_email=None, user_phone=None, user_id=None):
     session = Session()
     user = None
     if user_name is not None:

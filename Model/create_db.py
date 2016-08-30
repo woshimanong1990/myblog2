@@ -31,14 +31,14 @@ class UserLogin(Base):
     __tablename__ = 'users_login'
 
     id = Column(Integer, primary_key=True)
-    user_name = Column(String(20))
-    password = Column(String(20))
+    user_name = Column(String(30))
+    password = Column(String(70))
     login_ip = Column(String(12))
     login_time = Column(BigInteger)
     email = Column(String(20))
     phone = Column(BigInteger)
     activate_status = Column(Boolean)
-    activate_code = Column(String(16))
+    activate_code = Column(String(50))
     bad_login_ip = Column(String(12))
     bad_login_time = Column(BigInteger)
     bad_login_count = Column(Integer)
@@ -48,10 +48,10 @@ class UserLogin(Base):
     user_info = relationship('User', uselist=False, back_populates='user_login')
 
     def __init__(self, **kwargs):
-        self.login_time = get_time()
+        self.login_time = self.modify_time = get_time()
         self.activate_code = get_uuid()
         passwd = kwargs.pop('password', None)
-        self.password = self.check_passwd(passwd)
+        self.password = self.create_passwd(passwd)
         for k, v in kwargs.items():
             setattr(self, k, v)
         super(UserLogin, self).__init__()
@@ -60,10 +60,10 @@ class UserLogin(Base):
     def create_passwd(passwd):
         if passwd is None:
             raise Exception('密码为空')
-        return hashlib.sha256(passwd+"good,good,stdy")
+        return hashlib.sha256(passwd+"good,good,stdy").hexdigest()
 
     def check_passwd(self,passwd):
-        ss_userpwd = hashlib.sha256(passwd+"good,good,stdy")
+        ss_userpwd = hashlib.sha256(passwd+"good,good,stdy").hexdigest()
         return ss_userpwd == self.password
 
 

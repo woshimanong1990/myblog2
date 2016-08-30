@@ -51,9 +51,9 @@ def check_passwd(user_passwd):
 
 def check_email(user_email):
     if user_email:
-        pattern = re.compile(r'^[A-Za-z0-9_][3,100]@\.[A-Za-z0-9][1-20]\.[A-Za-z0-9][1-20]\.[A-Za-z0-9][1-20]$')
+        pattern = re.compile(r'^(\w)+(\.\w+)*@(\w)+((\.\w{2,10}){1,3})$')
         if not pattern.match(user_email):
-            raise ValueError('邮箱设置正确')
+            raise ValueError('邮箱设置不正确')
 
 
 def check_length(min_len, max_len, check_str, tag):
@@ -74,6 +74,17 @@ def check_phone(phone):
         pattern = re.compile(r'\d[3,20]')
         if not pattern.match(phone):
             raise ValueError('电话设置有误')
+
+
+def catch_exce(func):
+    def wrapped(self,*args, **kwargs):
+        try:
+            func(self, *args, **kwargs)
+        except Exception as e:
+            self.set_status(404, reason=e.message)
+
+            self.write_error(404, **{'exc_info': e.message})
+    return wrapped
 
 if __name__ == '__main__':
     print get_base_uuid()

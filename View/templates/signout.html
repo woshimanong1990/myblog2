@@ -2,25 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>sign out</title>
+    <title>sign up</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/signup.css" />
+    <script src="../static/js/jquery-3.1.0.min.js"></script>
+    <script src="../static/js/signup.js"></script>
 </head>
 <body>
-<form action="/v01/users" method="post">
+<form id="form" method="post" action="/v01/users">
+    <p class="error_message_all"></p>
     {% raw xsrf_form_html() %}
     <label >用户名</label>
-    <input type="text" id="" name="user_name"><br>
+    <input type="text" class="require check_exit" id="user_name" name="user_name">
+    <label id="error_user_name" class="message require" for="user_name">*</label>
+    <br>
     <label >密码</label>
-    <input type="password" name="password"><br>
+    <input type="password" class="require" id="password" name="password">
+    <label id="error_password"  class="message require" for="password">*</label><br>
     <label>确认密码</label>
-    <input type="password" name="check_passwd"><br>
-    <label>手机</label>
-    <input type="text" name="phone"> <br>
+    <input type="password" class="require" id="check_passwd" name="check_passwd">
+    <label id="error_check_passwd" class="message require"  for="check_passwd">*</label>
+    <br>
     <label>邮箱</label>
-    <input type="text" name="email"><br>
-    <img src="/v01/check_code"><br>
+    <input type="text" class="require check_exit" id="email" name="email">
+    <label id="error_email" class="message require"  for="email">*</label>
+    <br>
+    <label>手机</label>
+    <input type="text" class="check_exit" id="phone" name="phone"> <br>
+    <label id="error_phone" class="message "  for="phone"></label>
+    <img id ="check_code_imag" src="/v01/check_code">
+    <input type="button" id="check_code_button" value="看不清">
+    <br>
     <label>验证码</label>
-    <input type="text" name="check_code"><br>
-    <input type="submit" value="注册">
+    <input type="text" class="require" id="check_code" name="check_code">
+    <label id="error_check_code" class="message require"  for="check_code">*</label>
+
+    <br>
+    <input type="button" id="submit" value="注册">
 </form>
 
 </body>
