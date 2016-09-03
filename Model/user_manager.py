@@ -33,8 +33,9 @@ class UserManager(object):
             raise Exception('账号被禁，禁止登陆')
 
         kwgs = dict()
-        kwgs['login_ip'] = user_ip
-        user_db_op.update_user(user, **kwgs)
+        if user_ip:
+            kwgs['login_ip'] = user_ip
+            user_db_op.update_user(user, **kwgs)
 
 
 

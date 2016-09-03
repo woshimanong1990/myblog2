@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding:utf-8
 import sys
-from create_db import UserLogin,User
+from create_db import UserLogin, User, Role
 from sqlalchemy.orm import sessionmaker
 from operation_db import ENGINE
-from utils.tools import check_length,check_empty,check_passwd,check_email,check_ip,check_user_name,check_phone
+from utils.tools import check_passwd, check_email, check_ip, check_user_name, check_phone
 Session = sessionmaker(bind=ENGINE)
 
 reload(sys)
@@ -12,18 +12,17 @@ sys.setdefaultencoding('utf-8')
 
 
 def check_fields(**kwargs):
-    user_name = kwargs.get('user_name', None)
-    check_user_name(user_name)
-
-    check_passwd(kwargs.get('password', None))
-
-    email = kwargs.get('email', None)
-    check_email(email)
-
-    phone = kwargs.get('phone', None)
-    check_phone(phone)
-
-    check_ip(kwargs.get('login_ip', None))
+    for k, v in kwargs.items():
+        if k == 'user_name':
+            check_user_name(kwargs[k])
+        elif k == 'password':
+            check_passwd(kwargs[k])
+        elif k == 'email':
+            check_email(kwargs[k])
+        elif k == 'phone':
+            check_phone(kwargs[k])
+        elif k == 'login_ip':
+            check_ip(kwargs[k])
 
 
 def create_user(**kwargs):
@@ -35,6 +34,9 @@ def create_user(**kwargs):
     email = kwargs.get('email', None)
     phone = kwargs.get('phone', None)
 
+    user_name_check = None
+    user_email_check = None
+    user_phone_check = None
     try:
         user_name_check = get_user(user_name=user_name)
     except Exception as e:
@@ -55,6 +57,9 @@ def create_user(**kwargs):
         raise Exception('用户手机已存在')
 
     user = UserLogin(**kwargs)
+    user.user_info = User()
+    role = Role()
+    user.user_info.role.append(role)
     session.add(user)
     session.commit()
     return user
@@ -128,3 +133,5 @@ def is_user_exist(user_name=None, user_email=None, user_phone=None,user_id=None)
     else:
         return False
 
+def get_user_info_by_user(user):
+    pass

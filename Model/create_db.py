@@ -22,11 +22,6 @@ role_user = Table('role_user', Base.metadata,
                   Column('role_id', Integer, ForeignKey('role.id'))
                   )
 
-role_permission = Table('role_permission', Base.metadata,
-                        Column('role_id', Integer, ForeignKey('role.id')),
-                        Column('permission_id', Integer, ForeignKey('permission.id'))
-                        )
-
 class UserLogin(Base):
     __tablename__ = 'users_login'
 
@@ -118,8 +113,9 @@ class Blog(Base):
 class Comment(Base):
     __tablename__ = 'comment'
     id = Column(Integer, primary_key=True)
-    creatime = Column(BigInteger)
-    reply_status = Column(Boolean)
+    create_time = Column(BigInteger)
+    modify_time = Column(BigInteger)
+    reply_status = Column(Boolean, default=False)
     content = Column(Text)
 
     user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE', onupdate='CASCADE'))
@@ -142,10 +138,8 @@ class Role(Base):
     __tablename__ = 'role'
     id = Column(Integer, primary_key=True)
     # 1 admin, 2 common user,3
-    rolename = Column(String(10))
+    rolename = Column(String(10), default=2)
 
-    permission = relationship('Permission', secondary=role_permission,
-                              back_populates="role")
 
     def __init__(self, **kwargs):
         for k, v in kwargs.items():
@@ -155,23 +149,6 @@ class Role(Base):
     @property
     def is_admin(self):
         return str(self.rolename) == '1'
-
-
-class Permission(Base):
-    __tablename__ = 'permission'
-    id = Column(Integer, primary_key=True)
-    status = Column(Boolean, default=True)
-    permission_name = Column(String(10))
-
-    role = relationship('Role', secondary=role_permission,
-                        back_populates="permission")
-
-    def __init__(self, **kwargs):
-        for k, v in kwargs.items():
-            setattr(self, k, v)
-
-        super(Permission, self).__init__()
-
 
 
 
