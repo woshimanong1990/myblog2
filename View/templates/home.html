@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>my home</title>
-</head>
-<body>
-{{current_user}}
-</body>
-</html>
+{% extends "base.html" %}
+
+
+{% block title %}
+    {{current_user}}的博客
+{% end %}
+
+{% block person %}
+    {{current_user}}
+{% end %}
+{% block header %}
+    <h1>{{ current_user }}</h1>
+{% end %}
+
+{% block body %}
+    <p>Hello from the child template!</p>
+{% end %}
+
+{% block footer %}
+    <p>{{ current_user }}</p>
+{% end %}

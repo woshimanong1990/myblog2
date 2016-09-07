@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+
+    {{current_user}}的博客
+{% end %}
+
+{% block person %}
+    {{current_user}}
+{% end %}
+{% block body %}
+<form action="/v01/blogs" method="post">
+    <label>标题</label>
+    <input type="text" name="title">
+    <label>内容</label>
+    <input type="text" name="content">
+    <input type="submit" value="保存">
+</form>
+
+{% end %}

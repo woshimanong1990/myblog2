@@ -13,6 +13,13 @@ class IndexHandler(BaseHandler):
     def get(self, *args, **kwargs):
         logging.info("请求主页")
         self.render('index.html')
+class PersonHomeHandler(BaseHandler):
+
+    def get(self, *args, **kwargs):
+        logging.info("访问个人主页")
+
+        self.render('home.html')
 index_handelr = [
-    (r'/', IndexHandler)
+    (r'/', IndexHandler),
+    (r'/v01/home', PersonHomeHandler)
 ]

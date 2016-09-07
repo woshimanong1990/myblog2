@@ -39,7 +39,7 @@ settings = {
 
 
 def db_init():
-    init_db()
+    init_db(SERVER_LOG=SERVER_LOG)
 
 
 def main():
@@ -61,6 +61,8 @@ if __name__ == '__main__':
         tornado.options.parse_command_line()
         SERVER_LOG = os.path.join(os.path.dirname(__file__), "server_log.conf")
         logging.config.fileConfig(SERVER_LOG)
+        sql=logging.getLogger('sqlalchemy.engine')
+        sql.debug("dsfdsf")
 
         main()
     except:

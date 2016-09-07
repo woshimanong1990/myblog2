@@ -1,32 +1,252 @@
-2016-08-30 15:28:21,575 - tornado.application - ERROR - Uncaught exception GET / (127.0.0.1)
-HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='GET', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': '_xsrf=9dd8cba361c449a9a63bf55f16490717; check_code=55Oc54af6JKC6JC9|1472540030|23eabcc282654786af10c7d7208bf3685c350ff5', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'}) - [web.py:1548]
-Traceback (most recent call last):
-  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1446, in _execute
-    result = self.prepare()
-  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BaseHandler.py", line 15, in prepare
-    if self.request.headers["Content-Type"].startswith("application/json"):
-  File "F:\program\python27\lib\site-packages\tornado\httputil.py", line 215, in __getitem__
-    return self._dict[_normalized_headers[name]]
-KeyError: 'Content-Type'
-2016-08-30 15:28:24,440 - tornado.application - ERROR - Uncaught exception GET / (127.0.0.1)
-HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='GET', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': '_xsrf=9dd8cba361c449a9a63bf55f16490717; check_code=55Oc54af6JKC6JC9|1472540030|23eabcc282654786af10c7d7208bf3685c350ff5', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'}) - [web.py:1548]
-Traceback (most recent call last):
-  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1446, in _execute
-    result = self.prepare()
-  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BaseHandler.py", line 15, in prepare
-    if self.request.headers["Content-Type"].startswith("application/json"):
-  File "F:\program\python27\lib\site-packages\tornado\httputil.py", line 215, in __getitem__
-    return self._dict[_normalized_headers[name]]
-KeyError: 'Content-Type'
-2016-08-30 18:11:09,265 - tornado.application - ERROR - Uncaught exception GET /v01/check_code?1472551869242 (127.0.0.1)
-HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='GET', uri='/v01/check_code?1472551869242', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'image/webp,image/*,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8081/v01/signout', 'Cookie': '_xsrf=9dd8cba361c449a9a63bf55f16490717; check_code="2|1:0|10:1472551844|10:check_code|16:5qiq55Sf5p6d6IqC|5712e3248fc27efa871a3f09bdc7f4b80d31a7a53637c149d970edcdfcdf0527"'}) - [web.py:1548]
+2016-09-05 14:37:01,111 - tornado.application - ERROR - Uncaught exception GET /v01/eidt_blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='GET', uri='/v01/eidt_blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8081/v01/blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'If-None-Match': '"aa34ade9ca09c9d67cab1478059942dc93158480"', 'Upgrade-Insecure-Requests': '1'}) - [web.py:1548]
 Traceback (most recent call last):
   File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
     result = method(*self.path_args, **self.path_kwargs)
-  File "G:\myProgram\python\myExecise\tornado_blog\Controller\CheckcodeHandler.py", line 16, in get
-    code_img, capacha_code = image.randChinese()
-  File "G:\myProgram\python\myExecise\tornado_blog\utils\check_code.py", line 72, in randChinese
-    chengyu = RandomChar().GB2312()
-  File "G:\myProgram\python\myExecise\tornado_blog\utils\check_code.py", line 29, in GB2312
-    chengyu = RandomChar.chengyu[num]
-KeyError: 100
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 117, in get
+    self.render('edit_blog.html', blog=blog)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 719, in render
+    html = self.render_string(template_name, **kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 826, in render_string
+    return t.generate(**namespace)
+  File "F:\program\python27\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "edit_blog_html.generated.py", line 63, in _tt_execute
+    if comments is not None:  # edit_blog.html:25 (via base.html:50)
+NameError: global name 'comments' is not defined
+2016-09-05 15:11:42,073 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+TypeError: put() takes exactly 1 argument (2 given)
+2016-09-05 15:13:24,785 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '44', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 78, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-05 15:15:34,414 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-05 15:18:01,630 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-05 15:18:30,226 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-05 15:19:40,786 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:/myProgram/python/myExecise/tornado_blog/Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-05 15:21:50,654 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-05 15:30:08,081 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-05 15:30:57,220 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473047177|10:check_code|16:55m+5oqY5LiN5oyg|f13891f7e76176bf789c4fa09ae9cd8419ec28b17e5bc7cea008f32b3be10238"; user_name="2|1:0|10:1473047200|9:user_name|8:bGlzaQ==|d804a63ec412e55197d0766f2f937ce854e3eda58dc9926138161f2b51d4fbd5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-06 09:23:25,595 - tornado.application - ERROR - Uncaught exception GET /v01/blogs (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='GET', uri='/v01/blogs', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8081/v01/home', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473124718|10:check_code|16:5Zub5bmz5YWr56iz|230a33bf760b40ea2a65f452f9d88ee675cad1d8cf7dc284972e2ecb327ab4d2"; user_name="2|1:0|10:1473125002|9:user_name|8:bGlzaQ==|d26788bacd766d756e994b699e28265189d8d2b597eb70aec08fa546ddc8d19c"', 'If-None-Match': '"43a38aea4e2932a4faf065ffc6a4384656678dc7"', 'Upgrade-Insecure-Requests': '1'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 23, in get
+    blogs = get_blogs(user)
+  File "G:\myProgram\python\myExecise\tornado_blog\Model\blog_db_op.py", line 49, in get_blogs
+    blogs = user.blog
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\attributes.py", line 237, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\attributes.py", line 583, in get
+    value = self.callable_(state, passive)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\strategies.py", line 517, in _load_for_state
+    (orm_util.state_str(state), self.key)
+DetachedInstanceError: Parent instance <UserLogin at 0x41acef0> is not bound to a Session; lazy load operation of attribute 'blog' cannot proceed
+2016-09-06 09:23:48,000 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473124718|10:check_code|16:5Zub5bmz5YWr56iz|230a33bf760b40ea2a65f452f9d88ee675cad1d8cf7dc284972e2ecb327ab4d2"; user_name="2|1:0|10:1473125002|9:user_name|8:bGlzaQ==|d26788bacd766d756e994b699e28265189d8d2b597eb70aec08fa546ddc8d19c"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-06 09:24:04,164 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473124718|10:check_code|16:5Zub5bmz5YWr56iz|230a33bf760b40ea2a65f452f9d88ee675cad1d8cf7dc284972e2ecb327ab4d2"; user_name="2|1:0|10:1473125002|9:user_name|8:bGlzaQ==|d26788bacd766d756e994b699e28265189d8d2b597eb70aec08fa546ddc8d19c"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-06 09:27:16,510 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473124718|10:check_code|16:5Zub5bmz5YWr56iz|230a33bf760b40ea2a65f452f9d88ee675cad1d8cf7dc284972e2ecb327ab4d2"; user_name="2|1:0|10:1473125002|9:user_name|8:bGlzaQ==|d26788bacd766d756e994b699e28265189d8d2b597eb70aec08fa546ddc8d19c"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-06 09:57:03,321 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473126990|10:check_code|16:5LiD6Zu25YWr6JC9|f0d9bc4e9302814a68ca8530a882bec4642e55c692dd56ba2307d119af34e8de"; user_name="2|1:0|10:1473127016|9:user_name|8:bGlzaQ==|e9f37d9e19c715e9141bf23adfefa0ea498ae4c404584a42980edcc45471bab5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 81, in put
+    raise Exception('Forbidden')
+Exception: Forbidden
+2016-09-06 10:00:33,796 - tornado.application - ERROR - Uncaught exception PUT /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='PUT', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Content-Length': '41', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html, */*; q=0.01', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473126990|10:check_code|16:5LiD6Zu25YWr6JC9|f0d9bc4e9302814a68ca8530a882bec4642e55c692dd56ba2307d119af34e8de"; user_name="2|1:0|10:1473127016|9:user_name|8:bGlzaQ==|e9f37d9e19c715e9141bf23adfefa0ea498ae4c404584a42980edcc45471bab5"', 'Content-Type': 'application/json'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 78, in put
+    if user.id == blog.author_id or role_is_admin(user):
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\attributes.py", line 237, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\attributes.py", line 578, in get
+    value = state._load_expired(state, passive)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\state.py", line 474, in _load_expired
+    self.manager.deferred_scalar_loader(self, toload)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\loading.py", line 610, in load_scalar_attributes
+    (state_str(state)))
+DetachedInstanceError: Instance <UserLogin at 0x48bdac8> is not bound to a Session; attribute refresh operation cannot proceed
+2016-09-06 10:13:58,039 - tornado.application - ERROR - Uncaught exception DELETE /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='DELETE', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': '*/*', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473126990|10:check_code|16:5LiD6Zu25YWr6JC9|f0d9bc4e9302814a68ca8530a882bec4642e55c692dd56ba2307d119af34e8de"; user_name="2|1:0|10:1473127016|9:user_name|8:bGlzaQ==|e9f37d9e19c715e9141bf23adfefa0ea498ae4c404584a42980edcc45471bab5"'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 101, in delete
+    raise e
+InvalidRequestError: Object '<Blog at 0x46710b8>' is already attached to session '12' (this is '13')
+2016-09-06 10:16:19,790 - tornado.application - ERROR - Uncaught exception DELETE /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='DELETE', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': '*/*', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473126990|10:check_code|16:5LiD6Zu25YWr6JC9|f0d9bc4e9302814a68ca8530a882bec4642e55c692dd56ba2307d119af34e8de"; user_name="2|1:0|10:1473127016|9:user_name|8:bGlzaQ==|e9f37d9e19c715e9141bf23adfefa0ea498ae4c404584a42980edcc45471bab5"'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 101, in delete
+    raise e
+InvalidRequestError: Object '<Blog at 0x4303978>' is already attached to session '2' (this is '3')
+2016-09-06 10:21:43,444 - tornado.application - ERROR - Uncaught exception DELETE /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='DELETE', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Origin': 'http://127.0.0.1:8081', 'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': '*/*', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'X-Requested-With': 'XMLHttpRequest', 'Referer': 'http://127.0.0.1:8081/v01/blog/1', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473126990|10:check_code|16:5LiD6Zu25YWr6JC9|f0d9bc4e9302814a68ca8530a882bec4642e55c692dd56ba2307d119af34e8de"; user_name="2|1:0|10:1473127016|9:user_name|8:bGlzaQ==|e9f37d9e19c715e9141bf23adfefa0ea498ae4c404584a42980edcc45471bab5"'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 2829, in wrapper
+    return method(self, *args, **kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 101, in delete
+    raise e
+NameError: global name 'session' is not defined
+2016-09-06 10:26:17,782 - tornado.application - ERROR - Uncaught exception GET /v01/blog/1 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='GET', uri='/v01/blog/1', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8081/v01/blogs', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473126990|10:check_code|16:5LiD6Zu25YWr6JC9|f0d9bc4e9302814a68ca8530a882bec4642e55c692dd56ba2307d119af34e8de"; user_name="2|1:0|10:1473127016|9:user_name|8:bGlzaQ==|e9f37d9e19c715e9141bf23adfefa0ea498ae4c404584a42980edcc45471bab5"', 'Upgrade-Insecure-Requests': '1'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 59, in get
+    self.render('blog_content.html', blog=blog, comments=comments)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 719, in render
+    html = self.render_string(template_name, **kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 826, in render_string
+    return t.generate(**namespace)
+  File "F:\program\python27\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "blog_content_html.generated.py", line 113, in _tt_execute
+    _tt_tmp = blog.id  # blog_content.html:47 (via base.html:51)
+AttributeError: 'NoneType' object has no attribute 'id'
+2016-09-06 10:27:00,346 - tornado.application - ERROR - Uncaught exception GET /v01/blog/3 (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8081', method='GET', uri='/v01/blog/3', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8081', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36', 'Connection': 'keep-alive', 'Referer': 'http://127.0.0.1:8081/v01/eidt_blog/3', 'Cookie': '_xsrf=2|7b10e56e|1270e442ab40618d404b7817202c9624|1472701442; check_code="2|1:0|10:1473126990|10:check_code|16:5LiD6Zu25YWr6JC9|f0d9bc4e9302814a68ca8530a882bec4642e55c692dd56ba2307d119af34e8de"; user_name="2|1:0|10:1473127016|9:user_name|8:bGlzaQ==|e9f37d9e19c715e9141bf23adfefa0ea498ae4c404584a42980edcc45471bab5"', 'Upgrade-Insecure-Requests': '1'}) - [web.py:1548]
+Traceback (most recent call last):
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 1467, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "G:\myProgram\python\myExecise\tornado_blog\Controller\BlogHandler.py", line 59, in get
+    self.render('blog_content.html', blog=blog, comments=comments)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 719, in render
+    html = self.render_string(template_name, **kwargs)
+  File "F:\program\python27\lib\site-packages\tornado\web.py", line 826, in render_string
+    return t.generate(**namespace)
+  File "F:\program\python27\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "blog_content_html.generated.py", line 49, in _tt_execute
+    _tt_tmp = blog.title  # blog_content.html:16 (via base.html:51)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\attributes.py", line 237, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\attributes.py", line 578, in get
+    value = state._load_expired(state, passive)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\state.py", line 474, in _load_expired
+    self.manager.deferred_scalar_loader(self, toload)
+  File "F:\program\python27\lib\site-packages\sqlalchemy\orm\loading.py", line 610, in load_scalar_attributes
+    (state_str(state)))
+DetachedInstanceError: Instance <Blog at 0x47bd1d0> is not bound to a Session; attribute refresh operation cannot proceed

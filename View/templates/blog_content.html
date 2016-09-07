@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}
+    {{current_user}}的博客
+{% end %}
+
+{% block person %}
+    {{current_user}}
+{% end %}
+
+{% block body %}
+
+
+{% if blog is not None %}
+
+<div>
+    <h2>{{blog.title}}</h2>
+    <p class="hidden">{{blog.id}}</p>
+    <button ><a href="/v01/eidt_blog/{{blog.id}}">修改</a></button>
+    <button id="blog_delete_button">删除</button>
+    <p>{{blog.create_time}}</p>
+    <p>{{blog.content}}</p>
+
+
+</div>
+<script src="{{ static_url('js/delete_blog.js') }}"></script>
+{% end %}
+
+
+
+{% if comments is not None%}
+{%for n in range(len(comments))%}
+<div>
+
+    <label>{{n+1}}</label>
+    <p>{{comments[n].content}}</p>
+    <p>{{comments[n].modify_time}}</p>
+    <a ></a>
+     <a href="/v01/"></a>
+</div>
+{% end %}
+{% end %}
+
+
+<div>
+<p>评论</p>
+   <form action="/v01/comments" method="post">
+    <input class="hidden" name="blog_id" value="{{blog.id}}">
+    <input type="text" name="commnet_content">
+    <input type="submit" value="保存">
+</form>
+</div>
+<div>
+<p>修改</p>
+   <form action="/v01/comments" method="post">
+    <input class="hidden" name="blog_id" value="{{blog.id}}">
+    <input type="text" name="commnet_content">
+    <input type="submit" value="保存">
+</form>
+</div>
+{% end %}

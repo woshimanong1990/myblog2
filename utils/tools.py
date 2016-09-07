@@ -2,9 +2,15 @@
 # coding:utf-8
 import sys
 import time
+import urlparse
 import uuid
 import base64
 import re
+
+import functools
+from urllib import urlencode
+
+from tornado.web import HTTPError
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -67,17 +73,20 @@ def check_empty(check_str, tag):
     if not check_str:
         raise ValueError('%s 不能为空值' % tag)
 
+def escape_replace_str(content):
+    return content
+
 
 def check_phone(phone):
     if phone:
         check_length(3, 20, phone, '电话')
-        pattern = re.compile(r'\d[3,20]')
+        pattern = re.compile(r'\d{3,20}')
         if not pattern.match(phone):
             raise ValueError('电话设置有误')
 
 
 def catch_exce(func):
-    def wrapped(self,*args, **kwargs):
+    def wrapped(self, *args, **kwargs):
         try:
             func(self, *args, **kwargs)
         except Exception as e:
@@ -85,6 +94,35 @@ def catch_exce(func):
 
             self.write_error(404, **{'exc_info': e.message})
     return wrapped
+
+def authenticated(method):
+    """Decorate methods with this to require that the user be logged in.
+
+    If the user is not logged in, they will be redirected to the configured
+    `login url <RequestHandler.get_login_url>`.
+
+    If you configure a login url with a query parameter, Tornado will
+    assume you know what you're doing and use it as-is.  If not, it
+    will add a `next` parameter so the login page knows where to send
+    you once you're logged in.
+    """
+    @functools.wraps(method)
+    def wrapper(self, *args, **kwargs):
+        if not self.current_user:
+            if self.request.method in ("GET", "HEAD"):
+                url = self.get_login_url()
+                if "?" not in url:
+                    if urlparse.urlsplit(url).scheme:
+                        # if login url is absolute, make next absolute too
+                        next_url = self.request.full_url()
+                    else:
+                        next_url = self.request.uri
+                    url += "?" + urlencode(dict(next=next_url))
+                self.redirect(url)
+                return
+            raise HTTPError(403)
+        return method(self, *args, **kwargs)
+    return wrapper
 
 if __name__ == '__main__':
     print get_base_uuid()

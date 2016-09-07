@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}
+    {{current_user}}的博客
+{% end %}
+
+{% block person %}
+    {{current_user}}
+{% end %}
+
+{% block body %}
+
+
+{% if blog is not None %}
+
+<div>
+    <form >
+        <p class="hidden">{{blog.id}}</p>
+    <label>标题</label>
+    <input type="text"  id ="blog_title" name="title" value="{{blog.title}}">
+    <label>内容</label>
+    <input type="text" id="blog_content" name="content" value="{{blog.content}}">
+
+</form>
+<button id="eidt_blog_button" >保存</button>
+</div>
+ <script src="{{ static_url('js/blog_edit.js') }}" type="application/javascript"></script>
+{% end %}
+
+
+
+
+{% end %}
+
+
+

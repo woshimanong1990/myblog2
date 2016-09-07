@@ -3,17 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <link href="{{ static_url('css/bootstrap.min.css') }}" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="{{ static_url('css/login.css') }}" />
+    <script src="{{ static_url('js/jquery-3.1.0.min.js') }}" type="application/javascript"></script>
+    <script src="{{ static_url('js/login.js') }}" type="application/javascript"></script>
 </head>
 <body>
-<form action="/v01/login" method="post">
-    {% raw xsrf_form_html() %}
-    <label class="label1" for="username">用户名</label><br>
-    <input id="username" type="text" name="username"><br>
-    <label class="label2" for="userpwd">密码</label><br>
-    <input type="password" id="userpwd" name="userpwd"><br>
-    <img id="check_code" src="/v01/check_code"><br>
-    <input type="text" name="check_code"><br>
-    <input type="submit" value="sign in"><br>
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <img src="{{ static_url('image/bikaqiu.jpg') }}">
+        </div>
+        <div class="col-lg-4">
+            <p class="error_message" id="error_all"></p>
+            <form class="form-horizontal" role="form" id="form">
+                {% raw xsrf_form_html() %}
+                <div class="form-group">
+                    <label class="col-sm-3 control-label label1" for="username">用户名</label>
+                    <div class="col-sm-7 ">
+                        <input type="text" class="form-control require" id="username" name="user_name" placeholder="请输入用户名">
+
+                    </div>
+                    <label id="username_label" class="error_message col-sm-2 control-label" for="username">*</label>
+                </div>
+
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label label2" for="userpwd">密码</label>
+                    <div class="col-sm-7 ">
+                        <input type="password" class="form-control require" id="userpwd" name="password" placeholder="请输入密码">
+
+                    </div>
+                    <label id="userpwd_label" class="error_message col-sm-2 control-label" for="userpwd">*</label>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 " ></label>
+                    <img id="check_code_imag" src="/v01/check_code">
+                    <input type="button" id ="reload_check_code" value="看不清">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" >验证码</label>
+                    <div class="col-sm-7 ">
+                        <input type="text" id="check_code"  class="form-control require" name="check_code">
+                    </div>
+                    <label class="error_message col-sm-2 control-label" id="check_code_label" for="check_code">*</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" ></label>
+                    <button type="button" id="login" class="btn btn-primary">登录</button>
+                    <button type="button" id="signup" class="btn btn-primary">注册</button>
+                </div>
+
+    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

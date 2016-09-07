@@ -1,0 +1,13 @@
+body {
+    margin: 0 auto;
+    padding: 0;
+    font: 14px/1.4 Arial, Helvetica, sans-serif;
+    position: relative;
+}
+.navbar{
+    background-color: #4cae4c;
+}
+.container{
+    padding-top:100px;
+    width: 1170px;
+}

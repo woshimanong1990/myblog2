@@ -14,17 +14,16 @@ reload(sys)
 
 
 class UserHandler(BaseHandler):
-    @check_permission
+
     @authenticated
     def get(self, user_id):
         pass
 
-    @check_permission
+
     @authenticated
     def put(self, user_id):
         pass
 
-    @check_permission
     @authenticated
     def delete(self, user_id):
         pass
@@ -38,11 +37,18 @@ class UsersHandler(BaseHandler):
 
     @catch_exce
     def post(self):
+        if self.json_args:
+            user_name = self.json_args.get('user_name',None)
+            passwd = self.json_args.get('password', None)
+            check_passwd = self.json_args.pop('check_passwd', None)
+            check_code = self.json_args.pop('check_code', None)
+            body = self.json_args
+        else:
+            raise Exception('参数有误')
         user_ip = self.request.headers.get('X-Real-Ip', None)
-        body = json.loads(self.request.body)
-        passwd = body.get('password', None)
-        check_passwd = body.pop('check_passwd', None)
         message = None
+        if not user_name:
+            raise Exception('用户名不能为空')
         if not passwd:
             raise Exception('密码不能为空')
         if not check_passwd:
@@ -51,47 +57,71 @@ class UsersHandler(BaseHandler):
         if passwd != check_passwd:
             message = '两次密码不一致'
             self.write_error(404, **{'exc_info': message})
+
         code = self.get_secure_cookie('check_code')
-        check_code = body.pop('check_code', None)
         check_code = check_code.replace(' ', '', 1)
         if not check_code:
             message = '验证码不能为空'
             self.write_error(404, **{'exc_info': message})
         if code != check_code.encode('utf-8'):
+            message = '验证码错误'
             self.write_error(404, **{'exc_info': message})
 
         body['login_ip'] = user_ip
         try:
             user = create_user(**body)
         except Exception as e:
-            message = e.message
-            self.set_status(404, reason=message)
-            self.write_error(404)
-
-        self.render('home.html')
+            raise e
+        self.set_secure_cookie('user_name', user_name)
+        self.redirect('/v01/home')
 
 
 class UsersLoginHandler(BaseHandler):
     def get(self):
         self.render('login.html')
 
-    @check_permission
-    @authenticated
+    @catch_exce
     def post(self):
-        user_name = self.get_argument('username')
-        user_passwd = self.get_argument('userpwd')
-        UserManager.login(user_name, user_passwd)
-        self.render('home.html')
+        user_ip = self.request.headers.get('X-Real-Ip', None)
+        if self.json_args:
+            user_name = self.json_args.get('user_name', None)
+            user_passwd = self.json_args.get('password', None)
+            check_code = self.json_args.get('check_code', None)
+        else:
+            user_name = self.get_argument('username', default=None)
+            user_passwd = self.get_argument('password', default=None)
+            check_code = self.get_argument('check_code',  default=None)
+        if not user_name:
+            raise Exception('用户名不能为空')
+        if not user_passwd:
+            raise Exception('密码不能为空')
+        code = self.get_secure_cookie('check_code')
+        check_code = check_code.replace(' ', '', 1)
+        if not check_code:
+            message = '验证码不能为空'
+            self.write_error(404, **{'exc_info': message})
+        if code != check_code.encode('utf-8'):
+            message = '验证码错误'
+            self.write_error(404, **{'exc_info': message})
+        try:
+            UserManager.login(user_name=user_name, user_password=user_passwd, user_ip=user_ip)
+        except:
+            s = traceback.format_exc()
+            print s
+            raise Exception('抱歉，登录失败')
+        self.set_secure_cookie('user_name', user_name)
+        self.redirect('/v01/home')
 
 
 class UsersLogoutHandler(BaseHandler):
-    @check_permission
     @authenticated
     def get(self):
-        pass
+        if self.get_argument('logout', None):
+            self.clear_cookie("user_name")
+            self.redirect("/")
 
 
-class SignOutHandler(BaseHandler):
+class SignUpHandler(BaseHandler):
     def get(self, *args, **kwargs):
         self.render('signout.html')
 
@@ -106,9 +136,9 @@ class CheckUserHandler(BaseHandler):
             user_email = self.json_args.get("email", None)
             user_phone = self.json_args.get("phone", None)
         else:
-            user_name = self.get_argument("user_name")
-            user_email = self.get_argument("email")
-            user_phone = self.get_argument("phone")
+            user_name = self.get_argument("user_name", default=None)
+            user_email = self.get_argument("email", default=None)
+            user_phone = self.get_argument("phone", default=None)
         try:
             get_user(user_name=user_name, user_email=user_email, user_phone=user_phone)
         except:
@@ -120,6 +150,6 @@ user_handler = [
     (r'/v01/user/([0-9]+)', UserHandler),
     (r'/v01/login', UsersLoginHandler),
     (r'/v01/logout', UsersLogoutHandler),
-    (r'/v01/signout', SignOutHandler),
+    (r'/v01/signup', SignUpHandler),
     (r'/v01/check_user', CheckUserHandler),
 ]

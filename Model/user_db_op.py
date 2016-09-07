@@ -3,6 +3,7 @@
 import sys
 from create_db import UserLogin, User, Role
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import subqueryload
 from operation_db import ENGINE
 from utils.tools import check_passwd, check_email, check_ip, check_user_name, check_phone
 Session = sessionmaker(bind=ENGINE)
@@ -59,7 +60,7 @@ def create_user(**kwargs):
     user = UserLogin(**kwargs)
     user.user_info = User()
     role = Role()
-    user.user_info.role.append(role)
+    user.roles.append(role)
     session.add(user)
     session.commit()
     return user
@@ -135,3 +136,14 @@ def is_user_exist(user_name=None, user_email=None, user_phone=None,user_id=None)
 
 def get_user_info_by_user(user):
     pass
+
+
+def get_user_and_roles(user_name=None):
+    session = Session()
+    user = None
+    try:
+        user = session.query(UserLogin).options(subqueryload(UserLogin.roles)).filter_by(user_name=user_name).one()
+    except Exception as e:
+        raise e
+    session.commit()
+    return user

@@ -1,3 +1,19 @@
 label.require{
     color:red;
 }
+.container{
+    padding-top: 40px;
+    margin: 0 auto;
+    width: 1170px;
+    border-color: #9d9d9d;
+
+}
+input{
+    padding-left: 100px;
+}
+body{
+    background-color: #eee;
+}
+label{
+    align-content:center;
+}

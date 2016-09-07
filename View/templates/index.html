@@ -12,8 +12,9 @@
     <title>Blog Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../static/css/blog.css" rel="stylesheet">
+
+    <link href="{{ static_url('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ static_url('css/blog.css')}}" rel="stylesheet">
   </head>
 
   <body>
@@ -26,26 +27,45 @@
       <a class="navbar-brand" href="/v01/login">登录</a>
    </div>
     <div class="navbar-header navbar-right">
-      <a class="navbar-brand" href="/v01/signout">注册</a>
+      <a class="navbar-brand" href="/v01/signup">注册</a>
    </div>
 
 </nav>
-<header class="header-top jumbotron" style="background-image:url(../static/image/background.jpg)">
+<header class="header-top jumbotron">
 <div class="container">
 <div class="row">
  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>RESTful API 编写指南</h1>
-                        <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
-                        <span class="meta">Posted by <a href="/users/gevin/">gevin</a> on 2016/06/06 00:43:18</span>
-
-                        <span class="meta">Category: <a href="/?category=微服务">微服务</a></span>
-
-                        <span class="meta">Tags:
-                             <a href="/?tag=RESTful">RESTful</a>   <a href="/?tag=flask">flask</a>   <a href="/?tag=django">django</a>   <a href="/?tag=OAuth">OAuth</a>
-                        </span>
-                    </div>
-                </div>
+    <div id="myCarousel" class="carousel slide">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="{{ static_url('image/leaf.jpg')}}" alt="First slide">
+            <div class="carousel-caption"></div>
+        </div>
+        <div class="item">
+            <img src="{{ static_url('image/leaf.jpg')}}" alt="Second slide">
+            <div class="carousel-caption"></div>
+        </div>
+        <div class="item">
+            <img src="{{ static_url('image/leaf.jpg')}}" alt="Third slide">
+            <div class="carousel-caption"></div>
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel"
+        data-slide="prev">&lsaquo;
+    </a>
+    <a class="carousel-control right" href="#myCarousel"
+        data-slide="next">&rsaquo;
+    </a>
+</div>
+</div>
 </div>
 </div>
 </header>
@@ -56,8 +76,8 @@
 
 
 
-    <script src="../static/js/jquery-3.1.0.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{{ static_url('js/jquery-3.1.0.min.js')}}"></script>
+    <script src="{{ static_url('js/bootstrap.min.js')}}"></script>
 
   </body>
 </html>

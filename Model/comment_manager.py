@@ -2,7 +2,7 @@
 # coding:utf-8
 import sys
 
-from Model.comment_db_op import create_comment,get_comments
+from Model.comment_db_op import create_comment, get_comments, delete_comment, get_comment
 from utils.tools import escape_replace_str
 
 reload(sys)
@@ -30,4 +30,19 @@ class CommentManager(object):
     @staticmethod
     def get_replays(comment_id=None):
         pass
+    @staticmethod
+    def delete_comment(comment=None):
+        try:
+            delete_comment(comment=comment)
+        except Exception as e:
+            raise e
+    @staticmethod
+    def get_comment(comment_id=None):
+        comment = None
+        try:
+            comment = get_comment(comment_id=comment_id)
+        except Exception as e:
+            raise e
+        return comment
+
 

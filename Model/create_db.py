@@ -8,7 +8,7 @@ from sqlalchemy import Column, Integer, String, Text, BigInteger, Boolean, Date
 from sqlalchemy.orm import relationship
 from sqlalchemy import ForeignKey
 from utils.tools import get_uuid, get_time
-import random
+
 import hashlib
 
 
@@ -18,7 +18,7 @@ sys.setdefaultencoding('utf-8')
 
 Base = declarative_base()
 role_user = Table('role_user', Base.metadata,
-                  Column('user_id', Integer, ForeignKey('users.id')),
+                  Column('user_id', Integer, ForeignKey('users_login.id')),
                   Column('role_id', Integer, ForeignKey('role.id'))
                   )
 
@@ -41,6 +41,9 @@ class UserLogin(Base):
     # 1 启用，0，禁用
     status = Column(Integer, default=1)
     user_info = relationship('User', uselist=False, back_populates='user_login')
+
+    blog = relationship('Blog', back_populates='author')
+    roles = relationship('Role', secondary=role_user, back_populates='user')
 
     def __init__(self, **kwargs):
         self.login_time = self.modify_time = get_time()
@@ -76,8 +79,7 @@ class User(Base):
     user_id = Column(Integer, ForeignKey('users_login.id', ondelete='CASCADE', onupdate='CASCADE'))
 
     user_login = relationship('UserLogin', back_populates='user_info')
-    blog = relationship('Blog', back_populates='author')
-    role = relationship('Role', secondary=role_user)
+
 
     def __init__(self, **kwargs):
 
@@ -97,9 +99,9 @@ class Blog(Base):
     reading_count = Column(Integer)
     tag_class = Column(String(20))
 
-    author_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE', onupdate='CASCADE'))
+    author_id = Column(Integer, ForeignKey('users_login.id', ondelete='CASCADE', onupdate='CASCADE'))
 
-    author = relationship('User', back_populates='blog')
+    author = relationship('UserLogin', back_populates='blog')
     comments = relationship('Comment', back_populates='blog')
 
     def __init__(self, **kwargs):
@@ -118,12 +120,12 @@ class Comment(Base):
     reply_status = Column(Boolean, default=False)
     content = Column(Text)
 
-    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE', onupdate='CASCADE'))
+    user_id = Column(Integer, ForeignKey('users_login.id', ondelete='CASCADE', onupdate='CASCADE'))
     comment_id = Column(Integer, ForeignKey('comment.id', ondelete='CASCADE', onupdate='CASCADE'))
     blog_id = Column(Integer, ForeignKey('blog.id', ondelete='CASCADE', onupdate='CASCADE'))
 
     blog = relationship('Blog', back_populates='comments')
-    user = relationship('User')
+    user = relationship('UserLogin')
     reply = relationship('Comment')
 
     def __init__(self, **kwargs):
@@ -138,7 +140,10 @@ class Role(Base):
     __tablename__ = 'role'
     id = Column(Integer, primary_key=True)
     # 1 admin, 2 common user,3
-    rolename = Column(String(10), default=2)
+    rolename = Column(String(10), default='2')
+
+    user = relationship('UserLogin', secondary=role_user,
+                        back_populates='roles')
 
 
     def __init__(self, **kwargs):

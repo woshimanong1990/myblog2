@@ -17,9 +17,9 @@ def create_comment(user=None, blog_id=None, commnet_content=None, commnet_id=Non
 
     if user is None:
         raise Exception('用户不能为空')
-    if is_commentted_for_blog(user_id=user.user_info.id, blog_id=blog_id):
+    if is_commentted_for_blog(user_id=user.id, blog_id=blog_id):
         raise Exception('你已经评论过了，请不要再次评论')
-    kwargs['user_id'] = user.user_info.id
+    kwargs['user_id'] = user.id
     kwargs['blog_id'] = blog_id
     kwargs['content'] = commnet_content
     if commnet_id is not None:
@@ -77,18 +77,15 @@ def get_comment(comment_id=None):
     return comment
 
 
-def get_comment_by_user_blog(user_id=None,blog_id=None):
+def get_comment_by_user_blog(user_id=None, blog_id=None):
     session = Session()
     comment = None
     if user_id is not None and blog_id is not None:
-        comment = session.query(Comment).filter(Comment.user_id==user_id). \
-            filter(Comment.blog_id==blog_id).all()
+        comment = session.query(Comment).filter(Comment.user_id == user_id). \
+            filter(Comment.blog_id == blog_id).all()
     else:
         raise ValueError('获取评论的参数错误')
     return comment
-
-def update_comment():
-    pass
 
 def is_commentted_for_blog(user_id=None,blog_id=None):
     comment = None
@@ -101,4 +98,17 @@ def is_commentted_for_blog(user_id=None,blog_id=None):
             return True
         else:
             return False
+
+
+def delete_comment(comment=None):
+    if comment is None:
+        raise Exception('评论删除失败')
+    session = sessionmaker.object_session(comment)
+    if session is None:
+        session = Session()
+    try:
+        session.delete(comment)
+    except:
+        raise Exception('评论删除失败')
+
 

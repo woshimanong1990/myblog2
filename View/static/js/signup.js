@@ -138,12 +138,38 @@ $("#check_code_button").click(function () {
      if (pasw1 != pasw2){
          $(".error_message_all").text("两次密码不一致");
      }
-        alert(""+empty_flag +exist_flag +code_flag);
+        // alert(""+empty_flag +exist_flag +code_flag);
         if (empty_flag && exist_flag && code_flag) {
+            var user_name=$("#user_name").val();
+            var user_password=$("#password").val();
+            var check_passwd=$("#check_passwd").val();
+            var email=$("#email").val();
+            var phone=$("#phone").val();
+            var check_code=$("#check_code").val();
+            $.ajax({
+                url:"/v01/users",
+                async:false,
+                type:"post",
+                data:JSON.stringify({
+                    user_name:user_name,
+                    password:user_password,
+                    check_passwd:check_passwd,
+                    email:email,
+                    phone:phone,
+                    check_code:check_code
+                }),
+                dataTypes:"json",
+                contentType:"application/json",
+                success:function (data,status) {
+                    console.log(data+status);
+                    top.location.href="/v01/home";
+                },
+                error:function (res,info) {
+                    $(".error_message_all").text(info);
+                }
+            })
 
-            //$("#form").attr("action","/v01/users");
-            //$("#form").attr("method","post");
-            $("#form").submit();
+
         }
         if(!empty_flag){
             $(".require").each(function () {

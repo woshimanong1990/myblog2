@@ -20,4 +20,8 @@ class BaseHandler(RequestHandler):
         else:
             self.json_args=None
 
+    def get_current_user(self):
+        return self.get_secure_cookie("user_name")
+
+
 

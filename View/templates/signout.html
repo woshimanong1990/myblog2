@@ -3,42 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <title>sign up</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/signup.css" />
-    <script src="../static/js/jquery-3.1.0.min.js"></script>
-    <script src="../static/js/signup.js"></script>
+
+    <link href="{{ static_url('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ static_url('css/signup.css') }}" />
+    <script src="{{ static_url('js/jquery-3.1.0.min.js') }}"></script>
+    <script src="{{ static_url('js/signup.js') }}"></script>
 </head>
 <body>
-<form id="form" method="post" action="/v01/users">
-    <p class="error_message_all"></p>
-    {% raw xsrf_form_html() %}
-    <label >用户名</label>
-    <input type="text" class="require check_exit" id="user_name" name="user_name">
-    <label id="error_user_name" class="message require" for="user_name">*</label>
-    <br>
-    <label >密码</label>
-    <input type="password" class="require" id="password" name="password">
-    <label id="error_password"  class="message require" for="password">*</label><br>
-    <label>确认密码</label>
-    <input type="password" class="require" id="check_passwd" name="check_passwd">
-    <label id="error_check_passwd" class="message require"  for="check_passwd">*</label>
-    <br>
-    <label>邮箱</label>
-    <input type="text" class="require check_exit" id="email" name="email">
-    <label id="error_email" class="message require"  for="email">*</label>
-    <br>
-    <label>手机</label>
-    <input type="text" class="check_exit" id="phone" name="phone"> <br>
-    <label id="error_phone" class="message "  for="phone"></label>
-    <img id ="check_code_imag" src="/v01/check_code">
-    <input type="button" id="check_code_button" value="看不清">
-    <br>
-    <label>验证码</label>
-    <input type="text" class="require" id="check_code" name="check_code">
-    <label id="error_check_code" class="message require"  for="check_code">*</label>
+<div class="container">
 
-    <br>
-    <input type="button" id="submit" value="注册">
+
+<div class="row">
+    <div class="col-lg-6">
+<img src="{{ static_url('image/back.jpg') }}">
+    </div>
+    <div class="col-lg-6">
+
+
+
+
+
+<form class="form-horizontal" role="form" id="form">
+     <p class="error_message_all"></p>
+    {% raw xsrf_form_html() %}
+    <div class="form-group">
+         <label class="col-sm-2 control-label">用户名</label>
+        <div class="col-sm-7 ">
+            <input type="text" class="form-control require check_exit" id="user_name" name="user_name" placeholder="请输入用户名">
+
+        </div>
+         <label id="error_user_name" class="message require col-sm-3 control-label" for="user_name">*</label>
+
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-7 ">
+            <input type="password" class="form-control require" id="password" name="password">
+
+        </div>
+<label id="error_password"  class="message require control-label col-sm-3" for="password">*</label>
+
+    </div>
+    <div class="form-group">
+         <label class="col-sm-2 control-label">确认密码</label>
+        <div class="col-sm-7 " >
+            <input type="password" class="form-control require " id="check_passwd" name="check_passwd">
+
+        </div>
+
+<label id="error_check_passwd" class="message require col-sm-3 control-label"  for="check_passwd">*</label>
+    </div>
+
+    <div class="form-group">
+         <label class="col-sm-2 control-label" >邮箱</label>
+        <div class="col-sm-7 ">
+            <input type="text" class="require check_exit form-control" id="email" name="email">
+
+        </div>
+ <label id="error_email" class="message require col-sm-3 control-label"  for="email">*</label>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2">手机</label>
+        <div class="col-sm-7">
+             <input type="text" class="check_exit form-control" id="phone" name="phone">
+
+        </div>
+  <label id="error_phone" class="message col-sm-3 control-label"  for="phone"></label>
+
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2"></label>
+        <div class="col-sm-7" >
+            <img id ="check_code_imag" src="/v01/check_code">
+            <input type="button" id="check_code_button" value="看不清">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 control-label">验证码</label>
+        <div class="col-sm-7 ">
+            <input type="text" class="require form-control" id="check_code" name="check_code">
+
+
+        </div>
+         <label id="error_check_code" class="message require col-sm-3 control-label"  for="check_code">*</label>
+
+
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-8 ">
+            <button type="button" class="btn btn-default" id="submit" >注册</button>
+        </div>
+    </div>
 </form>
 
+  </div>
+</div>
+    </div>
 </body>
 </html>
